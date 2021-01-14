@@ -1,6 +1,6 @@
-class Accounts::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(_resource)
-    new_account_session_path
+    new_user_session_path
   end
 end
 
