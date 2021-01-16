@@ -1,10 +1,10 @@
-<%= form_with(model: instrument, local: true) do |form| %>
-  <% if instrument.errors.any? %>
+<%= form_for @instrument, html: { multipart: true } do |form| %>
+  <% if @instrument.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
 
       <ul>
-        <% instrument.errors.full_messages.each do |message| %>
+        <% @instrument.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -44,6 +44,11 @@
   <div class="field">
     <%= form.label :finish %>
     <%= form.text_field :finish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">
